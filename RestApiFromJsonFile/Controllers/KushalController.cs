@@ -7,11 +7,6 @@ namespace RestApiFromJsonFile.Controllers
     [Route("[controller]")]
     public class KushalController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
         private readonly ILogger<WeatherForecastController> _logger;
 
         public KushalController(ILogger<WeatherForecastController> logger)
