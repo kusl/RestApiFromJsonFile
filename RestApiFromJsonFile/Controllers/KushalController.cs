@@ -20,12 +20,17 @@ namespace RestApiFromJsonFile.Controllers
             _logger.LogInformation("Get Kushal");
 
             string path = @"kushal.json";
-            Kushal kushal = new Kushal();
+            Kushal? kushal = new Kushal();
             if (System.IO.File.Exists(path))
             {
                 using StreamReader streamReader = new StreamReader(path);
                 string kushalText = await streamReader.ReadToEndAsync();
                 kushal = JsonConvert.DeserializeObject<Kushal>(kushalText);
+            }
+
+            if (kushal == null)
+            {
+                return new Kushal() { Id = 0, Name = "", Latitude = 0, Longitude = 0 };
             }
 
             return kushal;
